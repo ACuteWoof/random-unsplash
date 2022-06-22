@@ -15,13 +15,10 @@ function App() {
         backgroundImage:
           "url(https://source.unsplash.com/random/1920x1080/?dark%20water)",
         backgroundSize: "cover",
+        minHeight: "100vh",
       }}
     >
-      <div
-        class='p-10 backdrop-blur-sm
-
-'
-      >
+      <div class='p-10 min-h-screen backdrop-blur-sm'>
         <div class='mb-4'>
           <input
             type='text'
