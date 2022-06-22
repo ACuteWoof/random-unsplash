@@ -6,7 +6,12 @@ function App() {
   const [url, setUrl] = useState("https://source.unsplash.com/random/1366x768");
 
   const handleSearch = (e) => {
-    setUrl(`https://source.unsplash.com/random/${res}/?${search}`);
+    setUrl(
+      `https://source.unsplash.com/random/${res}/?${search.replaceAll(
+        " ",
+        "%20"
+      )}`
+    );
   };
 
   return (
