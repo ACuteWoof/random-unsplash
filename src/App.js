@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [search, setSearch] = useState("forest");
-  const [res, setRes] = useState("1920x1080");
+  const [res, setRes] = useState("500x500");
   const [url, setUrl] = useState(
-    "https://source.unsplash.com/random/1920x1080/?forest"
+    "https://source.unsplash.com/random/500x500/?forest"
   );
   const [theme, setTheme] = useState();
 
@@ -30,7 +30,7 @@ function App() {
       setTheme(themes[Math.floor(Math.random() * themes.length)]);
     }
     setSearch(theme);
-    setUrl("https://source.unsplash.com/random/1920x1080/?" + theme);
+    setUrl("https://source.unsplash.com/random/500x500/?" + theme);
   }, [theme]);
 
   const handleSearch = (e) => {
