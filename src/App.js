@@ -29,6 +29,11 @@ function App() {
             class='input input-bordered w-full border-base-300 m-1'
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch(e);
+              }
+            }}
           />
           <input
             type='text'
@@ -36,6 +41,11 @@ function App() {
             class='input input-bordered w-full max-w-xs min-w-xs border-base-300 m-1'
             value={res}
             onChange={(e) => setRes(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch(e);
+              }
+            }}
           />
           <button class='btn m-1' onClick={handleSearch}>
             Get image
