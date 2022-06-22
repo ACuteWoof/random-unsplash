@@ -1,9 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState("forest");
   const [res, setRes] = useState("1920x1080");
-  const [url, setUrl] = useState("https://source.unsplash.com/random/1366x768");
+  const [url, setUrl] = useState(
+    "https://source.unsplash.com/random/1920x1080/?forest"
+  );
+  const [theme, setTheme] = useState();
+
+  useEffect(() => {
+    const themes = [
+      "dracula",
+      "forest",
+      "valentine",
+      "business",
+      "halloween",
+      "coffee",
+      "dark",
+      "light",
+      "pastel",
+      "night",
+      "black",
+      "corporate",
+      "lofi",
+      "cmyk",
+      "aqua",
+    ];
+    if (!theme) {
+      setTheme(themes[Math.floor(Math.random() * themes.length)]);
+    }
+    setSearch(theme);
+    setUrl("https://source.unsplash.com/random/1920x1080/?" + theme);
+  }, [theme]);
 
   const handleSearch = (e) => {
     setUrl(
@@ -15,11 +43,10 @@ function App() {
   };
 
   return (
-    <>
+    <div data-theme={theme}>
       <div
         style={{
-          backgroundImage:
-            "url(https://source.unsplash.com/random/1920x1080/?dark%20water)",
+          backgroundImage: `url(${url})`,
           backgroundSize: "cover",
           minHeight: "100vh",
         }}
@@ -140,7 +167,7 @@ function App() {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 
